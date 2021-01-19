@@ -30,3 +30,10 @@ VALUES('Jet I Knight', '150000', 'Producer', '3232', 'NO' );
 
 Insert into "Employees" ("FullName", "Salary", "Job Position", "Phone Ext", "Is Part Time")
 VALUES('Rollo Koster', '79000', 'Engineer', '5454', 'NO' );
+
+ SELECT "FULLNAME", "Phone Ext" FROM "Employees" WHERE "Is Part Time" = 'NO;
+Select * FROM "Employees";
+
+
+INSERT INTO "Employees" ("FullName", "Salary", "Job Position", "Phone Ext", "Is Part Time")
+VALUES('Billy Goat', '450', 'Software Developer', '5353', 'YES' );
