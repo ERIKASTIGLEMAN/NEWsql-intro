@@ -37,3 +37,12 @@ Select * FROM "Employees";
 
 INSERT INTO "Employees" ("FullName", "Salary", "Job Position", "Phone Ext", "Is Part Time")
 VALUES('Billy Goat', '450', 'Software Developer', '5353', 'YES' );
+
+UPDATE "Employees"
+SET "Salary" = '500' WHERE "Job Position" = 'Foodie Chef';
+
+Insert into "Employees" ("FullName", "Salary", "Job Position", "Phone Ext", "Is Part Time")
+VALUES('Lazy Larry', '8800', 'Engineer', '5454', 'YES' );
+DELETE FROM "Employees" WHERE "FullName" = 'Lazy Larry';
+
+ALTER TABLE "Employees" ADD COLUMN "ParkingSpot" VARCHAR(10);
