@@ -300,8 +300,100 @@ CompanyDatabase> SELECT * FROM "PRODUCTORDERS";
 | ID   | ORDER NUMBER   |
 |------+----------------|
 
+CompanyDatabase> INSERT INTO "Departments" ("DepartmentName","Building");VALUES('DEVELOPMENT', 'MAIN'); 
+CompanyDatabase> SELECT * FROM "Departments";
++------+------------------+------------+
+| ID   | DepartmentName   | Building   |
+|------+------------------+------------|
+| 1    | DEVELOPMENT      | MAIN       |
++------+------------------+------------+
+
+CompanyDatabase> INSERT INTO "Departments" ("DepartmentName","Building") VALUES('MARKETING', 'NORTH'); 
+INSERT 0 1
+Time: 0.002s
+CompanyDatabase> SELECT * FROM "Departments";
++------+------------------+------------+
+| ID   | DepartmentName   | Building   |
+|------+------------------+------------|
+| 1    | DEVELOPMENT      | MAIN       |
+| 2    | MARKETING        | NORTH      |
++------+------------------+------------+
+
+ 
+ALTER TABLE "Employees" ADD COLUMN "Department ID" INT; 
+INSERT INTO "Employees" ("FullName","Salary"," Job Position", "Phone Ext"," Is Part Time","Department ID");VALUES('Tim Smith','40000', 'Programmer', '123', 'NO', '1');
+Time: 0.009s
+CompanyDatabase> INSERT INTO "Employees" ("FullName","Salary","Job Position","Phone Ext","Is Part Time","Department ID") VALUES('Tim Smith','40000', 
+................ 'Programmer', '123', 'NO', '1');
+INSERT 0 1
+Time: 0.004s
+CompanyDatabase> INSERT INTO "Employees" ("FullName","Salary","Job Position","Phone Ext","Is Part Time","Department ID") VALUES('Barbara Ramsey','800
+................ 00', 'Manager', '234', 'NO', '1');
+INSERT 0 1
+Time: 0.004s
+CompanyDatabase> INSERT INTO "Employees" ("FullName","Salary","Job Position","Phone Ext","Is Part Time","Department ID") VALUES('Tom Jones','32000', 
+................ 'ADMIN', '456', 'YES', '2');
+INSERT 0 1
+Time: 0.004s
+CompanyDatabase> select * FROM "Employees";
++-----------------+----------+-----------------------+-------------+----------------+---------------+------+-----------------+
+| FullName        | Salary   | Job Position          | Phone Ext   | Is Part Time   | ParkingSpot   | ID   | Department ID   |
+|-----------------+----------+-----------------------+-------------+----------------+---------------+------+-----------------|
+| Ding Dong       | 10000    | Greeter               | 1111        | YES            | <null>        | 1    | <null>          |
+| Santa Claus     | 1000000  | Santa                 | 0           | NO             | <null>        | 2    | <null>          |
+| Shady Beaches   | 25000    | Travel Agent          | 9999        | NO             | <null>        | 3    | <null>          |
+| Winnie Pooh     | 500      | Childrens Reader      | 1212        | YES            | <null>        | 4    | <null>          |
+| Paige Turner    | 80000    | Marketing Coordinator | 6565        | NO             | <null>        | 5    | <null>          |
+| Sam Sung        | 300000   | Inventor              | 5555        | NO             | <null>        | 6    | <null>          |
+| Donal Duck      | 65000    | Actor                 | 8888        | YES            | <null>        | 7    | <null>          |
+| Woodford Beaver | 120000   | Sommeliers            | 3333        | YES            | <null>        | 8    | <null>          |
+| Jet I Knight    | 150000   | Producer              | 3232        | NO             | <null>        | 9    | <null>          |
+| Rollo Koster    | 79000    | Engineer              | 5454        | NO             | <null>        | 10   | <null>          |
+| Billy Goat      | 450      | Software Developer    | 5353        | YES            | <null>        | 11   | <null>          |
+| Chris P Bacon   | 500      | Foodie Chef           | 4444        | NO             | <null>        | 12   | <null>          |
+| Tim Smith       | 40000    | Programmer            | 123         | NO             | <null>        | 13   | 1               |
+| Barbara Ramsey  | 80000    | Manager               | 234         | NO             | <null>        | 14   | 1               |
+| Tom Jones       | 32000    | ADMIN                 | 456         | YES            | <null>        | 15   | 2               |
++-----------------+----------+-----------------------+-------------+----------------+---------------+------+-----------------+
+SELECT 15
+Time: 0.010s
 
 
+CompanyDatabase> insert into "PRODUCTS" ("PRICE", "NAME", "DESCRIPTION", "QTYINSTOCK") VALUES('12.45', 'WIDGET', 'THE ORIGINAL WIDGET', '100');
+INSERT 0 1
+Time: 0.003s
+CompanyDatabase> SELECT * FROM "PRODUCTS";
++------+---------+--------+---------------------+--------------+
+| ID   | PRICE   | NAME   | DESCRIPTION         | QTYINSTOCK   |
+|------+---------+--------+---------------------+--------------|
+| 1    | 12.45   | WIDGET | THE ORIGINAL WIDGET | 100          |
++------+---------+--------+---------------------+--------------+
+SELECT 1
+
+CompanyDatabase> insert into "PRODUCTS" ("PRICE", "NAME", "DESCRIPTION", "QTYINSTOCK") VALUES('99.99', 'FLOWBEE', 'PERFECT for haircutsT', '3');
+INSERT 0 1
+Time: 0.003s
+CompanyDatabase> SELECT * FROM "PRODUCTS";
++------+---------+---------+-----------------------+--------------+
+| ID   | PRICE   | NAME    | DESCRIPTION           | QTYINSTOCK   |
+|------+---------+---------+-----------------------+--------------|
+| 1    | 12.45   | WIDGET  | THE ORIGINAL WIDGET   | 100          |
+| 2    | 99.99   | FLOWBEE | PERFECT for haircutsT | 3            |
++------+---------+---------+-----------------------+--------------+
+
+
+CompanyDatabase> INSERT INTO "ORDERS" ("ORDER NUMBER","DATE PLACED","EMAIL") VALUES('X529G', '2020-01-01 16:55:00','person@example.com');
+
+INSERT 0 1
+Time: 0.004s
+CompanyDatabase> select * FROM "ORDERS";
++------+----------------+---------------+--------------------+
+| ID   | ORDER NUMBER   | DATE PLACED   | EMAIL              |
+|------+----------------+---------------+--------------------|
+| 1    | X529G          | 2020-01-01    | person@example.com |
++------+----------------+---------------+--------------------+
+
+INSERT INTO "ORDERS" ("ORDER NUMBER","DATE PLACED","EMAIL") VALUES('X529G', '2020-01-01 16:55:00','person@example.com');
 
 
 
