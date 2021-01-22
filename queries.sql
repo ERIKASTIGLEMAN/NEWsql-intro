@@ -446,7 +446,36 @@ CompanyDatabase> select * FROM "PRODUCTORDERS";
 +------+------------+-----------+-------------+
 SELECT 2
 
+SELECT * FROM "Employees" JOIN "Departments" ON "Employees"."ID" = "Departments"."ID" WHERE
+................  "Departments"."Building" = 'NORTH';
++------------+----------+----------------+-------------
+| FullName   | Salary   | Job Position   | Phone Ext   | Is Part Time   | ParkingSpot   | ID   | Department ID   | ID   | DepartmentName   | Building   |
+|------------+----------+----------------+-------------
+SELECT 0
 
+CompanyDatabase> SELECT * FROM "Employees" JOIN "Departments" ON "Employees"."ID" = "Departments"."ID" WHERE "Departments"."Building" = 'EAST';
++-----------------+------+------------------+------------+
+| FullName   | Salary   | Job Position   | Phone Ext   | Is Part Time   | ParkingSpot   | ID   | Department ID   | ID   | DepartmentName   | Building   |
+|------------+----------+----------------+-------------+----------------+---------------+------
 
+Find all the ORDERS that contain the Product ID of 2:
+SELECT * FROM "ORDERS" JOIN "PRODUCTORDERS" ON "PRODUCTORDERS"."OrderID" = "ORDERS"."ID" WHERE "PRODUCTORDERS"."ProductID" = 2;
++------+----------------+---------------+--------------------+------+------------+-----------
+| ID   | ORDER NUMBER   | DATE PLACED   | EMAIL              | ID   | ORDERQTY   | OrderID   | ProductID   |
+|------+----------------+---------------+--------------------+------+------------+-----------
+| 1    | X529G          | 2020-01-01    | person@example.com | 3    | 2          | 1         | 2           |
++------+----------------+---------------+--------------------+------+------------+-----------
+SELECT 1
 
+Find the Quantity of the Flowbee Product from Order with the Order Number X529:
+SELECT "PRODUCTORDERS"."ORDERQTY"
+  FROM "PRODUCTORDERS"
+  JOIN "ORDERS" ON "PRODUCTORDERS"."OrderID" = "ORDERS"."ID"
+  JOIN "PRODUCTS" ON "PRODUCTORDERS"."ProductID" = "PRODUCTS"."ID"
+  WHERE "PRODUCTS"."NAME" = 'FLOWBEE'
+    AND "ORDERS"."ORDER NUMBER" = 'X529';
+    +------------+
+| ORDERQTY   |
+|------------|
++------------+
 
