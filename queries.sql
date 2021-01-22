@@ -395,6 +395,58 @@ CompanyDatabase> select * FROM "ORDERS";
 
 INSERT INTO "ORDERS" ("ORDER NUMBER","DATE PLACED","EMAIL") VALUES('X529G', '2020-01-01 16:55:00','person@example.com');
 
+CompanyDatabase> SELECT * FROM "PRODUCTORDERS";
++------+----------------+------------+
+| ID   | ORDER NUMBER   | ORDERQTY   |
+|------+----------------+------------|
++------+----------------+------------+
+
+Time: 0.005s
+CompanyDatabase> ALTER TABLE "PRODUCTORDERS" ADD COLUMN "OrderID" INTEGER REFERENCES "ORDERS" ("ID");
+
+ALTER TABLE
+Time: 0.003s
+CompanyDatabase> SELECT * FROM "PRODUCTORDERS";
++------+----------------+------------+-----------+-------------+
+| ID   | ORDER NUMBER   | ORDERQTY   | OrderID   | ProductID   |
+|------+----------------+------------+-----------+-------------|
+| 1    | 2              | 2          | <null>    | <null>      |
++------+----------------+------------+-----------+-------------+
+SELECT 1
+Time: 0.008s
+CompanyDatabase> DELETE FROM "PRODUCTORDERS" WHERE "ORDER NUMBER" = '2';
+
+CompanyDatabase> SELECT * FROM "PRODUCTORDERS";
++------+----------------+------------+-----------+-------------+
+| ID   | ORDER NUMBER   | ORDERQTY   | OrderID   | ProductID   |
+|------+----------------+------------+-----------+-------------|
++------+----------------+------------+-----------+-------------+
+
+REMOVED COLUMN
+CompanyDatabase> SELECT * FROM "PRODUCTORDERS";
++------+------------+-----------+-------------+
+| ID   | ORDERQTY   | OrderID   | ProductID   |
+|------+------------+-----------+-------------|
++------+------------+-----------+-------------+
+SELECT 0
+
+
+
+
+insert into "PRODUCTORDERS" ("ORDERQTY","OrderID", "ProductID") Values (3,1,1);
+insert into "PRODUCTORDERS" ("ORDERQTY","OrderID", "ProductID") Values (2,1,2);;
+INSERT 0 1
+Time: 0.003s
+CompanyDatabase> select * FROM "PRODUCTORDERS";
++------+------------+-----------+-------------+
+| ID   | ORDERQTY   | OrderID   | ProductID   |
+|------+------------+-----------+-------------|
+| 1    | 3          | 1         | 1           |
+| 3    | 2          | 1         | 2           |
++------+------------+-----------+-------------+
+SELECT 2
+
+
 
 
 
